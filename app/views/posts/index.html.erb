@@ -1,1 +1,42 @@
-<h1>Our third view 🚀</h1>
+<div class="container min-h-screen w-full mx-auto flex gap-15 items-start px-15 py-45">
+
+  <div class="w-1/4 border border-white">
+    <div id="sort-by-filter" class="px-10 py-10 border border-white">
+      <h3>Sort By</h3>
+      <div class="border border-white mt-10 p-5">
+        Most popular
+      </div>
+
+    </div>
+
+    <div id="categories-filter" class="py-40">
+
+    </div>
+  </div>
+
+  <div id="cards" class="w-3/4 gap-5 flex flex-wrap">
+    <%@posts.each do |post|%>
+      <ul>
+        <%= link_to(post_path(post)) do%>
+          <li class="border border-dotted">
+            <div class="bg-base-100 w-75 bg-gray-900 text-white">
+              <figure>
+                <%= image_tag("test_image.jpg", alt: "blog post", class:"border border-white") %>
+              </figure>
+              <div class="card-body">
+                <h2 class="card-title">
+                  <%= post.title %>
+                  <%# <div class="badge badge-secondary">NEW</div> %>
+                </h2>
+                <p>Add description to schema table</p>
+                <div class="card-actions justify-start">
+                  <div class="badge badge-outline">Display categories</div>
+                </div>
+              </div>
+            </div>
+          </li>
+        <%end%>
+      </ul>
+    <%end%>
+  </div>
+</div>

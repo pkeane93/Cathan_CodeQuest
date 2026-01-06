@@ -13,9 +13,9 @@ Post.destroy_all
 User.destroy_all
 
 admin = User.create(email:"pkenoreply@gmail.com", password:"123123")
-puts "#{admin} is created"
+puts "#{admin.email} is created"
 
-2.times do
+6.times do
   Post.create!(
     title: "Title here",
     content: "Content here",

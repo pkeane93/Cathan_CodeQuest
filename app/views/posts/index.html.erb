@@ -1,6 +1,6 @@
 <div class="container min-h-screen w-full mx-auto flex gap-15 items-start px-15 py-45">
 
-  <div class="w-1/4 border border-white">
+  <div class="w-1/4 border border-white rounded-md">
     <div id="sort-by-filter" class="px-10 py-10 border border-white">
       <h3>Sort By</h3>
       <div class="border border-white mt-10 p-5">
@@ -18,10 +18,10 @@
     <%@posts.each do |post|%>
       <ul>
         <%= link_to(post_path(post)) do%>
-          <li class="border border-dotted">
-            <div class="bg-base-100 w-75 bg-gray-900 text-white">
+          <li class ="group">
+            <div class="bg-base-100 w-75 bg-gray-900 text-white border border-gray-600 rounded-md  group-hover:border-white">
               <figure>
-                <%= image_tag("test_image.jpg", alt: "blog post", class:"border border-white") %>
+                <%= image_tag("test_image.jpg", alt: "blog post", class:"border-b border-gray-600 rounded-t-md group-hover:border-white") %>
               </figure>
               <div class="card-body">
                 <h2 class="card-title">

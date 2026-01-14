@@ -1,0 +1,77 @@
+
+<div class="flex flex-col gap-10 items-center pt-40">
+  <h1 class="text-5xl">Article Title</h1>
+  <h3 class="text-xl">Description of the article</h3>
+  <div>
+    <ul class="flex gap-3">
+      <li class="font-bold border border-gray-600 rounded-md px-2 py-1 text-sm">CATEGORY</li>
+      <li class="font-bold border border-gray-600 rounded-md px-2 py-1 text-sm">CATEGORY</li>
+    </ul>
+  </div>
+
+  <%# Main Content %>
+  <div class="w-3/5 items-left mb-20">
+
+    <figure class="w-full h-140">
+      <%= image_tag("placeholder.jpg", class:"w-full h-full object-cover")%>
+    </figure>
+
+    <div class="px-28 my-15">
+      <h2 class="fond-bold text-2xl">Paragraph Title</h2>
+      <p class="my-10 opacity-70">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus reiciendis, amet iste esse saepe ad veniam voluptates numquam omnis nemo soluta fugit ipsa, voluptas mollitia in repellendus vitae consequatur est!</p>
+      <hr class="opacity-70">
+    </div>
+
+    <div class="px-28 my-15">
+      <h2 class="fond-bold text-2xl">Paragraph Title</h2>
+      <p class="my-10 opacity-70">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus reiciendis, amet iste esse saepe ad veniam voluptates numquam omnis nemo soluta fugit ipsa, voluptas mollitia in repellendus vitae consequatur est!</p>
+    </div>
+
+    <figure class="w-full h-140">
+      <%= image_tag("placeholder.jpg", class:"w-full h-full object-cover")%>
+    </figure>
+
+     <div class="px-28 my-15">
+      <h2 class="fond-bold text-2xl">Paragraph Title</h2>
+      <p class="my-10 opacity-70">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus reiciendis, amet iste esse saepe ad veniam voluptates numquam omnis nemo soluta fugit ipsa, voluptas mollitia in repellendus vitae consequatur est!</p>
+      <hr class="opacity-50">
+    </div>
+
+     <div class="px-28 my-15">
+      <h2 class="fond-bold text-2xl">Paragraph Title</h2>
+      <p class="my-10 opacity-70">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus reiciendis, amet iste esse saepe ad veniam voluptates numquam omnis nemo soluta fugit ipsa, voluptas mollitia in repellendus vitae consequatur est!</p>
+      <hr class="opacity-50">
+    </div>
+
+  </div>
+
+  <%# Footer %>
+  <div class="w-full border-t border-b px-20 py-10 flex justify-between items-center">
+    <a href="https://pkeane93.github.io/portfolio_page/">
+      <div class="flex gap-5 items-center ">
+
+        <figure class="h-13 w-13 rounded-full overflow-hidden hover:scale-110">
+          <%= image_tag("PkeBaliAvatar.jpg", class:"object-cover h-full w-full ") %>
+        </figure>
+
+        <div>
+          <p class="font-bold">Pierre K.</p>
+          <p class="opacity-70">Full Stack Software Engineer</p>
+        </div>
+
+
+      </div>
+    </a>
+
+
+    <div class="flex gap-10 items-center">
+      <p class="text-lg font-semibold">Share this article</p>
+
+      <%=link_to("X", "#", class:"border opacity-70 rounded-full p-6 hover:bg-white hover:text-black transition-colors duration-300 ease-in-out")%>
+      <%=link_to("F", "#", class:"border opacity-70 rounded-full p-6 hover:bg-white hover:text-black transition-colors duration-300 ease-in-out")%>
+      <%=link_to("L", "#", class:"border opacity-70 rounded-full p-6 hover:bg-white hover:text-black transition-colors duration-300 ease-in-out")%>
+
+    </div>
+  </div>
+
+</div>

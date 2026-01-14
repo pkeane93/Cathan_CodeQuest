@@ -1,49 +1,45 @@
-<div class="container min-h-screen w-full mx-auto">
-
- <div class="h-90 w-full border-b border-gray-600 mb-20">
+<div class="h-90 w-full border-b border-gray-600 mb-20">
   <%= image_tag("banner.jpg", alt: "banner of a ruby gem", class:"w-full h-full object-cover [object-position:50%_46%]") %>
 </div>
 
-  <div class="flex gap-15 items-start px-15">
-    <div class="w-1/4 border border-gray-600 rounded-md">
-      <div id="sort-by-filter" class="p-10 border border-gray-600">
-        <h3>SORT BY</h3>
-        <div class="group border border-gray-600 mt-10 p-5 hover:bg-white transition-colors duration-300 ease-in-out rounded-md">
-          <h3 class="group-hover:text-black  transition-colors duration-300 ease-in-out">Most popular</h3>
-        </div>
-
+<div class="flex gap-15 items-start px-15">
+  <div class="w-1/4 border border-gray-600 rounded-md">
+    <div id="sort-by-filter" class="p-10 border border-gray-600">
+      <h3>SORT BY</h3>
+      <div class="group border border-gray-600 mt-10 p-5 hover:bg-white transition-colors duration-300 ease-in-out rounded-md">
+        <h3 class="group-hover:text-black  transition-colors duration-300 ease-in-out">Most popular</h3>
       </div>
 
-      <div id="categories-filter" class="p-10">
-        <h3>ELEMENTS</h3>
-      </div>
     </div>
 
-    <div id="cards" class="w-3/4 gap-5 flex flex-wrap">
-      <%@posts.each do |post|%>
-        <ul>
-          <%= link_to(post_path(post)) do%>
-            <li class ="group">
-              <div class="bg-base-100 w-75 bg-gray-900 text-white border border-gray-600 rounded-md  group-hover:border-white transition-colors duration-300 ease-in-out">
-                <figure>
-                  <%= image_tag("test_image.jpg", alt: "blog post", class:"border-b border-gray-600 rounded-t-md group-hover:border-white transition-colors duration-300 ease-in-out") %>
-                </figure>
-                <div class="card-body">
-                  <h2 class="card-title">
-                    <%= post.title %>
-                    <%# <div class="badge badge-secondary">NEW</div> %>
-                  </h2>
-                  <p>Add description to schema table</p>
-                  <div class="card-actions justify-start">
-                    <div class="badge badge-outline">Display categories</div>
-                  </div>
-                </div>
-              </div>
-            </li>
-          <%end%>
-        </ul>
-      <%end%>
+    <div id="categories-filter" class="p-10">
+      <h3>ELEMENTS</h3>
     </div>
   </div>
 
+  <div id="cards" class="w-3/4 gap-5 flex flex-wrap">
+    <%@posts.each do |post|%>
+      <ul>
+        <%= link_to(post_path(post)) do%>
+          <li class ="group">
+            <div class="w-75 bg-opacity-100 text-white border border-gray-600 rounded-md group-hover:border-white transition-colors duration-300 ease-in-out">
+              <figure>
+                <%= image_tag("placeholder.jpg", alt: "blog post", class:"border-b border-gray-600 rounded-t-md group-hover:border-white transition-colors duration-300 ease-in-out") %>
+              </figure>
+              <div class="card-body">
+                <h2 class="card-title">
+                  <%= post.title %>
+                  <%# <div class="badge badge-secondary">NEW</div> %>
+                </h2>
+                <p>Add description to schema table</p>
+                <div class="card-actions justify-start">
+                  <div class="badge badge-outline">Display categories</div>
+                </div>
+              </div>
+            </div>
+          </li>
+        <%end%>
+      </ul>
+    <%end%>
+  </div>
 </div>

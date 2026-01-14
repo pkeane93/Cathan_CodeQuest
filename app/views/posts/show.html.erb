@@ -47,7 +47,7 @@
 
   <%# Footer %>
   <div class="w-full border-t border-b px-20 py-10 flex justify-between items-center">
-    <a href="https://pkeane93.github.io/portfolio_page/">
+    <a href="https://pkeane93.github.io/portfolio_page/" target= "_blank">
       <div class="flex gap-5 items-center ">
 
         <figure class="h-13 w-13 rounded-full overflow-hidden hover:scale-110">
@@ -65,11 +65,28 @@
 
 
     <div class="flex gap-10 items-center">
-      <p class="text-lg font-semibold">Share this article</p>
+      <p class="text-xl font-semibold">Share this article</p>
 
-      <%=link_to("X", "#", class:"border opacity-70 rounded-full p-6 hover:bg-white hover:text-black transition-colors duration-300 ease-in-out")%>
-      <%=link_to("F", "#", class:"border opacity-70 rounded-full p-6 hover:bg-white hover:text-black transition-colors duration-300 ease-in-out")%>
-      <%=link_to("L", "#", class:"border opacity-70 rounded-full p-6 hover:bg-white hover:text-black transition-colors duration-300 ease-in-out")%>
+      <%= link_to("https://twitter.com",
+            class: "border opacity-70 rounded-full p-4 hover:bg-white hover:text-gray-700 transition-colors duration-300 ease-in-out",
+            target: "_blank") do %>
+
+        <i class="text-4xl ti ti-brand-x"></i>
+      <% end %>
+
+       <%= link_to("https://facebook.com",
+            class: "border opacity-70 rounded-full p-4 hover:bg-white hover:text-gray-700 transition-colors duration-300 ease-in-out",
+            target: "_blank") do %>
+
+        <i class="text-4xl ti ti-brand-facebook"></i>
+      <% end %>
+
+       <%= link_to("https://linkedin.com",
+            class: "border opacity-70 rounded-full p-4 hover:bg-white hover:text-gray-700 transition-colors duration-300 ease-in-out",
+            target: "_blank") do %>
+
+        <i class="text-4xl ti ti-brand-linkedin"></i>
+      <% end %>
 
     </div>
   </div>

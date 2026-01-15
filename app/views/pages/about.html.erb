@@ -1,1 +1,129 @@
-<h1>Our first view 🚀</h1>
+
+<div class="flex flex-col gap-10 items-center pt-40">
+  <h1 class="text-5xl">About Cathan’s CodeQuest</h1>
+  <h3 class="text-xl">Designing and Building Ruby on Rails Applications</h3>
+
+  <%# Main Content %>
+  <div class="w-3/5 items-left mb-20">
+
+    <figure class="w-full h-140">
+      <%= image_tag( "about_001.png", class: "w-full h-full object-cover object-[40%_50%]") %>
+    </figure>
+
+    <div class="px-28 my-10">
+      <h2 class="fond-bold text-2xl">Welcome to Cathan’s CodeQuest</h2>
+      <div class="my-10 opacity-70">
+        <p>
+          a personal journey through software development, problem-solving, and continuous learning, with a particular focus on Ruby on Rails.
+          This blog was created as a space to document what I’m learning, share practical tutorials, and explore ideas that come up while building
+          real applications. As someone still growing as a developer, I believe that explaining concepts clearly, even (and especially) when you’re
+          still learning them, is one of the best ways to truly understand them.
+        </p>
+      </div>
+      <hr class="opacity-70">
+    </div>
+
+    <div class="px-28 my-10">
+      <h2 class="fond-bold text-2xl">What You’ll Find Here</h2>
+      <div class="my-10 opacity-70">
+        <p>On Cathan’s CodeQuest, you can expect:</p>
+        <ul class="list-disc pl-10">
+          <li>Ruby on Rails tutorials focused on real-world use cases</li>
+          <li> Step-by-step walkthroughs of implementation details and core concepts</li>
+          <li>Insights and lessons learned from debugging, building, and experimenting</li>
+          <li>Occasional reflections on tools, workflows, and best practices</li>
+        </ul>
+        <p>The content emphasizes clarity, fundamentals, and practical application, whether you are reinforcing core concepts or evaluating how problems are approached.
+</p>
+      </div>
+    </div>
+
+    <figure class="w-full h-140">
+      <%= image_tag("about_002.png", class:"w-full h-full object-cover")%>
+    </figure>
+
+     <div class="px-28 my-10">
+      <h2 class="fond-bold text-2xl">Why I Started This Blog</h2>
+      <div class="my-10 opacity-70">
+        <p> I started this blog to document how I build software and to make my development process transparent. </p>
+        <ol class="list-decimal pl-10">
+          <li>To sharpen clarity - writing forces clarity, and clarity builds confidence.</li>
+          <li>To help others - if something I struggled with can save someone else time or frustration, it’s worth sharing.</li>
+        </ol>
+        <p> This is not a blog about having all the answers. It’s about asking better questions, documenting progress, and improving one step at a time.</p>
+      </div>
+      <hr class="opacity-50">
+    </div>
+
+     <div class="px-28 my-10">
+      <h2 class="fond-bold text-2xl">Who This Blog Is For</h2>
+      <div class="my-10 opacity-70">
+        <p> This blog is for: </p>
+        <ul class="list-disc pl-10">
+          <li>Beginners learning Ruby, Rails, or web development</li>
+          <li>Developers who enjoy practical, no-nonsense explanations</li>
+          <li>Anyone curious about the learning process behind building software</li>
+        </ul>
+      </div>
+      <hr class="opacity-50">
+    </div>
+
+     <div class="px-28 my-10">
+      <h2 class="fond-bold text-2xl">Join the Quest</h2>
+      <p class="my-10 opacity-70">
+        If you’re learning, building, or simply curious, you’re welcome here. Feel free to explore, experiment with the code, and learn alongside me.
+        Thanks for being part of the journey.
+      </p>
+
+      <p>— Cathan</p>
+
+    </div>
+  </div>
+
+  <%# Footer %>
+  <div class="w-full border-t border-b px-20 py-10 flex justify-between items-center">
+    <a href="https://pkeane93.github.io/portfolio_page/" target= "_blank">
+      <div class="flex gap-5 items-center ">
+
+        <figure class="h-13 w-13 rounded-full overflow-hidden hover:scale-110">
+          <%= image_tag("PkeBaliAvatar.jpg", class:"object-cover h-full w-full ") %>
+        </figure>
+
+        <div>
+          <p class="font-bold">Pierre K.</p>
+          <p class="opacity-70">Full Stack Software Engineer</p>
+        </div>
+
+
+      </div>
+    </a>
+
+
+    <div class="flex gap-10 items-center">
+      <p class="text-xl font-semibold">Share this blog</p>
+
+      <%= link_to("https://twitter.com",
+            class: "border opacity-70 rounded-full p-4 hover:bg-white hover:text-gray-700 transition-colors duration-300 ease-in-out",
+            target: "_blank") do %>
+
+        <i class="text-4xl ti ti-brand-x"></i>
+      <% end %>
+
+       <%= link_to("https://facebook.com",
+            class: "border opacity-70 rounded-full p-4 hover:bg-white hover:text-gray-700 transition-colors duration-300 ease-in-out",
+            target: "_blank") do %>
+
+        <i class="text-4xl ti ti-brand-facebook"></i>
+      <% end %>
+
+       <%= link_to("https://linkedin.com",
+            class: "border opacity-70 rounded-full p-4 hover:bg-white hover:text-gray-700 transition-colors duration-300 ease-in-out",
+            target: "_blank") do %>
+
+        <i class="text-4xl ti ti-brand-linkedin"></i>
+      <% end %>
+
+    </div>
+  </div>
+
+</div>

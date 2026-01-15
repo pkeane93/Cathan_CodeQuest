@@ -2,27 +2,41 @@
   <%= image_tag("banner.jpg", alt: "banner of a ruby gem", class:"w-full h-full object-cover [object-position:50%_46%]") %>
 </div>
 
+<%# Flexed Container %>
 <div class="flex gap-15 items-start px-15">
-  <div class="w-1/4 border border-gray-600 rounded-md">
-    <div id="sort-by-filter" class="p-10 border border-gray-600">
+
+  <%# Filters %>
+  <div data-controller="dropdown" class="w-1/4 border border-gray-600 rounded-sm">
+
+    <%# Filter: Sort By %>
+    <div class="py-10 px-10 border border-gray-600">
       <h3>SORT BY</h3>
-      <div class="group border border-gray-600 mt-10 p-5 hover:bg-white transition-colors duration-300 ease-in-out rounded-md">
-        <h3 class="group-hover:text-black  transition-colors duration-300 ease-in-out">Most popular</h3>
+      <div data-action="click->dropdown#open" data-dropdown-target="border" class="p-5 mt-10 group border border-gray-600 rounded-sm flex justify-between items-center cursor-pointer hover:bg-white transition-colors duration-300 ease-in-out">
+        <h3 data-dropdown-target="label" class="group-hover:text-black transition-colors duration-300">Recent</h3>
+        <i data-dropdown-target="icon" class="text-2xl ti ti-chevron-down group-hover:text-black transition-colors duration-300"></i>
       </div>
 
+      <%# Filter: Sort By Dropdown Menu %>
+      <div data-dropdown-target="menu" class="hidden border border-gray-600">
+        <div data-action="click->dropdown#select" class="p-5  cursor-pointer hover:text-black hover:bg-white transition-colors duration-300 ease-in-out">Most popular</div>
+        <div data-action="click->dropdown#select" class="p-5  cursor-pointer hover:text-black hover:bg-white transition-colors duration-300 ease-in-out">Oldest</div>
+      </div>
     </div>
 
-    <div id="categories-filter" class="p-10">
+    <%# Filter: Elements %>
+    <div class="py-10 px-10">
       <h3>ELEMENTS</h3>
     </div>
+
   </div>
 
-  <div id="cards" class="w-3/4 gap-5 flex flex-wrap">
+  <%# Articles %>
+  <div class="w-3/4 gap-5 flex flex-wrap">
     <%@posts.each do |post|%>
       <ul>
         <%= link_to(post_path(post)) do%>
           <li class ="group">
-            <div class="w-75 bg-opacity-100 text-white border border-gray-600 rounded-md group-hover:border-white transition-colors duration-300 ease-in-out">
+            <div class="w-75 bg-opacity-100 text-white border border-gray-600 rounded-sm group-hover:border-white transition-colors duration-300 ease-in-out">
               <figure>
                 <%= image_tag("placeholder.jpg", alt: "blog post", class:"border-b border-gray-600 rounded-t-md group-hover:border-white transition-colors duration-300 ease-in-out") %>
               </figure>
@@ -33,7 +47,7 @@
                 </h2>
                 <p>Add description to schema table</p>
                 <div class="card-actions justify-start">
-                  <div class="badge badge-outline rounded-md">Display categories</div>
+                  <div class="badge badge-outline rounded-sm">Display categories</div>
                 </div>
               </div>
             </div>

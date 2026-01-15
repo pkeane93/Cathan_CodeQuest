@@ -18,9 +18,18 @@
 
     <%# Import Tabler.io Icons %>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+
+    <%# Favicon %>
+    <%= favicon_link_tag "Cathan_logo_03_bg_black.png" %>
   </head>
 
   <body class="bg-gray-900 text-white container min-h-screen w-full mx-auto pb-40">
-    <%= yield %>
+    <header>
+      <%= render "shared/navbar" %>
+    </header>
+    <main id="main-content">
+      <%= yield %>
+    </main>
+
   </body>
 </html>

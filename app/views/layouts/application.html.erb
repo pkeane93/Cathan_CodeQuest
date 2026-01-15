@@ -24,9 +24,11 @@
   </head>
 
   <body class="bg-gray-900 text-white container min-h-screen w-full mx-auto pb-40">
+
     <header>
-      <%= render "shared/navbar" %>
+      <%= render "shared/navbar" if show_navbar? %>
     </header>
+
     <main id="main-content">
       <%= yield %>
     </main>

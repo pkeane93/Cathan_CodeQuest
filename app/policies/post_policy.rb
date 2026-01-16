@@ -4,11 +4,11 @@ class PostPolicy < ApplicationPolicy
   end
 
   def show?
-    false
+    true
   end
 
   def create?
-    user.admin?
+    user&.admin?
   end
 
   def new?

@@ -27,10 +27,14 @@
     <header>
       <%= render "shared/navbar" if show_navbar? %>
     </header>
+    <% flash.each do |key, message| %>
+     <div class="flash <%= key %>"><%= message %></div>
+    <% end %>
 
     <main id="main-content">
       <%= yield %>
     </main>
+
 
     <footer>
       <%= render "shared/footer" if show_navbar? %>

@@ -1,0 +1,26 @@
+<div class="flex flex-col gap-10 items-center pt-40">
+  <h1 class="text-5xl">New Post</h1>
+
+<%= form_with model: @restaurant do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+  </div>
+
+  <div>
+    <%= f.label :rating %>
+    <%= f.number_field :rating %>
+  </div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+
+<% end %>
+
+</div>

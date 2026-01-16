@@ -1,10 +1,16 @@
 module ApplicationHelper
 
   def show_navbar?
-    !(controller_name == "pages" && action_name == "home")
+    return false if controller_name == "pages" && action_name == "home"
+    return false if devise_controller?
+    true
   end
 
   def show_footer_middle?
-    !(controller_name == "posts" && action_name == "index")
+    if controller_name == "posts" && (action_name == "index" || action_name == "new")
+      false
+    else
+      true
+    end
   end
 end

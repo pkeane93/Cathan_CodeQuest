@@ -23,7 +23,7 @@
     <%= favicon_link_tag "Cathan_logo_03_bg_black.png" %>
   </head>
 
-  <body class="bg-gray-900 text-white container min-h-screen w-full mx-auto pb-40">
+  <body class="bg-gray-900 text-white container min-h-screen w-full mx-auto">
     <header>
       <%= render "shared/navbar" if show_navbar? %>
     </header>
@@ -31,6 +31,10 @@
     <main id="main-content">
       <%= yield %>
     </main>
+
+    <footer>
+      <%= render "shared/footer" if show_navbar? %>
+    </footer>
 
   </body>
 </html>

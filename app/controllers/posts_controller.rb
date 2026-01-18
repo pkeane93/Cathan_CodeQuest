@@ -8,6 +8,7 @@ class PostsController < ApplicationController
   def show
     @posts = Post.all
     @random_posts = Post.order("RANDOM()").limit(3)
+    @block = @post.blocks.build
     authorize @post
   end
 
@@ -35,7 +36,6 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
     authorize @post
     @post.destroy
     redirect_to posts_path, status: :see_other

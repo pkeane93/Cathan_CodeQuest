@@ -1,7 +1,8 @@
 
 <div class="flex flex-col gap-10 items-center pt-40">
-  <h1 class="text-5xl">Article Title</h1>
-  <h3 class="text-xl">Description of the article</h3>
+
+  <h1 class="text-5xl"><%= @post.title %></h1>
+  <h3 class="text-xl"><%= @post.subtitle %></h3>
   <div>
     <ul class="flex gap-3">
       <li class="font-bold border border-gray-600 rounded-md px-2 py-1 text-sm">CATEGORY</li>
@@ -9,38 +10,48 @@
     </ul>
   </div>
 
-  <%# Main Content %>
+  <%# Displayed Content %>
   <div class="w-3/5 items-left">
-
-    <figure class="w-full h-140">
-      <%= image_tag( "image001.jpg", class: "w-full h-full object-cover object-[40%_50%]") %>
-    </figure>
-
-    <div class="px-28 my-15">
-      <h2 class="fond-bold text-2xl">Paragraph Title</h2>
-      <p class="my-10 opacity-70">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus reiciendis, amet iste esse saepe ad veniam voluptates numquam omnis nemo soluta fugit ipsa, voluptas mollitia in repellendus vitae consequatur est!</p>
-      <hr class="opacity-70">
-    </div>
-
-    <div class="px-28 my-15">
-      <h2 class="fond-bold text-2xl">Paragraph Title</h2>
-      <p class="my-10 opacity-70">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus reiciendis, amet iste esse saepe ad veniam voluptates numquam omnis nemo soluta fugit ipsa, voluptas mollitia in repellendus vitae consequatur est!</p>
-    </div>
-
-    <figure class="w-full h-140">
-      <%= image_tag("image002.jpg", class:"w-full h-full object-cover")%>
-    </figure>
-
-     <div class="px-28 my-15">
-      <h2 class="fond-bold text-2xl">Paragraph Title</h2>
-      <p class="my-10 opacity-70">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus reiciendis, amet iste esse saepe ad veniam voluptates numquam omnis nemo soluta fugit ipsa, voluptas mollitia in repellendus vitae consequatur est!</p>
-      <hr class="opacity-50">
-    </div>
-
-     <div class="px-28 mt-15">
-      <h2 class="fond-bold text-2xl">Paragraph Title</h2>
-      <p class="my-10 opacity-70">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus reiciendis, amet iste esse saepe ad veniam voluptates numquam omnis nemo soluta fugit ipsa, voluptas mollitia in repellendus vitae consequatur est!</p>
-    </div>
-
+    <% @post.blocks.each_with_index do |block, index|%>
+      <% previous_block = @post.blocks[index - 1] if index > 0 %>
+      <% if block.blocktitle.present? %>
+        <div class="px-28 my-15">
+          <% if index > 0 && !previous_block.image.attached? %>
+            <hr class="opacity-50 mb-15">
+          <% end %>
+          <h2 class="fond-bold text-2xl"> <%= block.blocktitle %> </h2>
+          <p class="my-10 opacity-70"> <%= block.blocktext %> </p>
+        </div>
+      <% end %>
+      <% if block.image.attached? %>
+        <%= image_tag(block.image, class:"w-full h-full object-cover")%>
+      <% end %>
+    <% end %>
   </div>
+
+  <%# Admin Form %>
+    <% if policy(Post.new).new? %>
+      <div>
+        <%= form_with(model: [@post, @block], class: "flex flex-col space-y-4", local: true, html: { multipart: true }) do |f| %>
+
+          <div>
+            <%= f.label :blocktitle, class: "font-semibold" %>
+            <%= f.text_field :blocktitle, class: "border p-2 rounded w-full" %>
+          </div>
+
+          <div>
+            <%= f.label :blocktext, class: "font-semibold" %>
+            <%= f.text_area :blocktext, rows: 5, class: "border p-2 rounded w-full" %>
+          </div>
+
+          <div>
+            <%= f.label :image, "Upload Image", class: "font-semibold" %>
+            <%= f.file_field :image, class: "border p-2 rounded w-full" %>
+          </div>
+
+          <%= f.submit "Save Block", class: "bg-blue-500 text-white px-4 py-2 rounded" %>
+
+        <% end %>
+      </div>
+    <% end %>
 </div>

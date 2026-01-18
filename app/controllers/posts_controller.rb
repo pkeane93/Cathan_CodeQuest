@@ -12,11 +12,18 @@ class PostsController < ApplicationController
   end
 
   def new
-
+    @post = Post.new()
   end
 
   def create
-
+    @post = Post.new(post_params)
+    @post.user = current_user
+    authorize @post
+    if @post.save
+      redirect_to about_path()
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
@@ -38,6 +45,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
+    params.require(:post).permit(:title, :subtitle)
   end
 
 end

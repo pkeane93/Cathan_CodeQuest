@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
   belongs_to(:user)
-  has_many(:post)
+  has_many(:categories)
 
-  validates(:title, :content, presence: true)
+  validates(:title, :subtitle, presence: true)
 end

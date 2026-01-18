@@ -17,7 +17,6 @@
   <%# Navbar end  %>
   <div class="items-center flex gap-6 font-semibold">
     <% if policy(Post.new).new? %>
-      <%= link_to "NEW", new_post_path %>
       <%= link_to "LOGOUT", destroy_user_session_path, data: { turbo_method: :delete } %>
     <% end %>
   </div>

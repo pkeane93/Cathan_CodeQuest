@@ -32,25 +32,21 @@
   <%# Admin Form %>
     <% if policy(Post.new).new? %>
       <div>
-        <%= form_with(model: [@post, @block], class: "flex flex-col space-y-4", local: true, html: { multipart: true }) do |f| %>
+        <%= form_with(model: [@post, @block], class: "p-5 flex flex-col gap-2", local: true, html: { multipart: true }) do |f| %>
+          <div class="mb-8">
+            <%= f.text_field :blocktitle, placeholder: "Write the Paragraph Title..", class: "text-2xl p-2 text-center w-full focus:outline-none border-none placeholder:italic bg-gray-800 rounded-md" %>
+          </div>
 
-          <div>
-            <%= f.label :blocktitle, class: "font-semibold" %>
-            <%= f.text_field :blocktitle, class: "border p-2 rounded w-full" %>
+          <div class="mb-8">
+            <%= f.text_area :blocktext, rows: 2, placeholder: "Write it's Content..", class: "text-2xl p-2 text-center w-full focus:outline-none border-none placeholder:italic bg-gray-800 rounded-md" %>
           </div>
 
           <div>
-            <%= f.label :blocktext, class: "font-semibold" %>
-            <%= f.text_area :blocktext, rows: 5, class: "border p-2 rounded w-full" %>
-          </div>
-
-          <div>
-            <%= f.label :image, "Upload Image", class: "font-semibold" %>
+            <%= f.label :image, "Upload an Image", class: "font-semibold" %>
             <%= f.file_field :image, class: "border p-2 rounded w-full" %>
           </div>
 
-          <%= f.submit "Save Block", class: "bg-blue-500 text-white px-4 py-2 rounded" %>
-
+          <%= f.submit "Add Paragraph", class: "p-3 border border-white rounded-md cursor-pointer" %>
         <% end %>
       </div>
     <% end %>

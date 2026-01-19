@@ -12,7 +12,7 @@ puts "Deleting all Post and users"
 Post.destroy_all
 User.destroy_all
 
-admin = User.create(email:"pkenoreply@gmail.com", password:"123123", admin:true)
+admin = User.create(email:ENV["EMAIL"], password:ENV["PASS"], admin:true)
 puts "#{admin.email} is created"
 
 6.times do

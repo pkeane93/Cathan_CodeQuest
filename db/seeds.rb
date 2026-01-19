@@ -18,7 +18,7 @@ puts "#{admin.email} is created"
 6.times do
   Post.create!(
     title: "Title here",
-    content: "Content here",
+    subtitle: "Content here",
     image_url: "app/assets/images/undraw_blog-post_f68f.svg",
     user: admin)
 end

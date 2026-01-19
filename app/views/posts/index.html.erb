@@ -2,41 +2,45 @@
   <%= image_tag("banner.jpg", alt: "banner of a ruby gem", class:"w-full h-full object-cover [object-position:50%_46%]") %>
 </div>
 
+
 <%# Flexed Container %>
 <div data-controller="dropdown" class="flex gap-15 items-start px-15">
-
-  <%# Filters %>
-  <div class="w-1/4 border border-gray-600 rounded-sm">
-
-    <%# Filter: Sort By %>
-    <div class="py-10 px-10 border-b border-gray-600">
-      <h3>SORT BY</h3>
-      <div class="relative inline-block w-48">
-        <select data-action="change->dropdown#change" class="py-5 px-20 mt-8 border border-gray-600 rounded-md appearance-none hover:border-white transition-colors duration-300 ease-in-out">
-          <option class="bg-gray-900" value="recent">Recent</option>
-          <option value="oldest" class="bg-gray-900">Oldest</option>
-          <%# <option value="popular" class="bg-gray-900">Most popular</option> %>
-        </select>
-      </div>
-    </div>
-
-    <%# Filter: Elements %>
-    <%# <div class="py-10 px-10">
-      <h3>ELEMENTS</h3>
-    </div> %>
-
-  </div>
-
-  <%# Cards %>
-  <ul data-dropdown-target="cards" class="w-3/4 gap-5 flex flex-wrap">
-    <li id="post-0">
+<div>
+    <%# Admin add card %>
+    <div class="w-full mb-15">
       <% if policy(Post.new).new? %>
-        <%= link_to(new_post_path, class:"w-75 h-full bg-opacity-100 border border-dashed border-gray-600 hover:border-white transition-colors duration-300 ease-in-out rounded-sm flex items-center justify-center group") do%>
+        <%= link_to(new_post_path, class:"w-full h-40 bg-opacity-100 border border-dashed border-gray-600 hover:border-white transition-colors duration-300 ease-in-out rounded-sm flex items-center justify-center group") do%>
           <i class="ti ti-plus text-6xl text-gray-600 group-hover:text-white transition-colors duration-300 ease-in-out"></i>
         <%end%>
       <% end %>
-    </li>
+    </div>
 
+   <%# Filters %>
+    <div class="w-full p-5 border border-gray-600 rounded-sm">
+
+      <%# Filter: Sort By %>
+      <div class="py-10 px-10">
+        <h3>SORT BY</h3>
+        <div class="relative inline-block w-48">
+          <select data-action="change->dropdown#change" class="py-5 px-20 mt-8 border border-gray-600 rounded-md appearance-none hover:border-white transition-colors duration-300 ease-in-out">
+            <option class="bg-gray-900" value="recent">Recent</option>
+            <option value="oldest" class="bg-gray-900">Oldest</option>
+            <%# <option value="popular" class="bg-gray-900">Most popular</option> %>
+          </select>
+        </div>
+      </div>
+
+      <%# Filter: Elements %>
+      <%# <div class="py-10 px-10 border-t border-gray-600">
+        <h3>ELEMENTS</h3>
+      </div> %>
+
+    </div>
+</div>
+
+
+  <%# Cards %>
+  <ul data-dropdown-target="cards" class="w-3/4 gap-5 flex flex-wrap">
     <%@posts.each do |post|%>
       <li id="post-<%= post.id %>" class="relative group">
         <%# Delete Post %>

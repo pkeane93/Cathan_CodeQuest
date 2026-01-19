@@ -48,6 +48,8 @@ gem "bootsnap", require: false
 gem "devise"
 gem "pundit"
 
+# dotenv for privatekeys
+gem "dotenv-rails"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

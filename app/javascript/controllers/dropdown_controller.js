@@ -1,37 +1,35 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["menu", "icon", "border", "select", "label"]
+  static targets = ["cards"]
 
-  open = () => {
-    this.menuTarget.classList.toggle("hidden")
+  change = (event) => {
+    const selectedValue = event.target.value
+    const articlesArray = Array.from(this.cardsTarget.children)
 
-    if (this.menuTarget.classList.contains("hidden")) {
-      this.iconTarget.classList.remove("ti-chevron-up")
-      this.iconTarget.classList.add("ti-chevron-down")
-      this.borderTarget.classList.add("border","rounded-sm")
-      this.borderTarget.classList.remove("border-t", "border-l", "border-r", "rounded-t-sm")
-
-    } else {
-      this.borderTarget.classList.remove("border","rounded-sm")
-      this.borderTarget.classList.add("border-t", "border-l", "border-r", "rounded-t-sm")
-
-      this.iconTarget.classList.remove("ti-chevron-down")
-      this.iconTarget.classList.add("ti-chevron-up")
+    switch(selectedValue){
+      case "oldest":
+        articlesArray.sort((a, b) => {
+          const aId = Number(a.id.replace("post-", ""))
+          const bId = Number(b.id.replace("post-", ""))
+          return aId - bId
+        })
+        this.cardsTarget.replaceChildren(...articlesArray)
+        break;
+      case "recent":
+        articlesArray.sort((a, b) => {
+          const aId = Number(a.id.replace("post-", ""))
+          const bId = Number(b.id.replace("post-", ""))
+          return bId - aId
+        })
+        this.cardsTarget.replaceChildren(...articlesArray)
+        break;
+      case "popular":
+        console.log("Most popular selected")
+        break;
+      default:
+        console.log("Error: Unknown Switch Selection.")
+        break;
     }
-  }
-
-  select = (event) => {
-    let displayedText = this.labelTarget.textContent
-    const selectedText = event.currentTarget.textContent
-    this.labelTarget.textContent = selectedText
-    event.currentTarget.textContent = displayedText
-
-
-    this.menuTarget.classList.toggle("hidden")
-    this.iconTarget.classList.remove("ti-chevron-up")
-    this.iconTarget.classList.add("ti-chevron-down")
-    this.borderTarget.classList.add("border","rounded-sm")
-    this.borderTarget.classList.remove("border-t", "border-l", "border-r", "rounded-t-sm")
   }
 }

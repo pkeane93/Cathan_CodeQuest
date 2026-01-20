@@ -8,19 +8,18 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-puts "Deleting all Post and users"
-Post.destroy_all
-User.destroy_all
+if User.count > 0
+  puts "User already exist, skipping seed"
+else
+  admin = User.create!(email: ENV["EMAIL"], password: ENV["PASS"], admin: true)
+  puts "#{admin.email} is created"
 
-admin = User.create(email:ENV["EMAIL"], password:ENV["PASS"], admin:true)
-puts "#{admin.email} is created"
-
-6.times do
   Post.create!(
     title: "Title here",
     subtitle: "Content here",
     image_url: "app/assets/images/undraw_blog-post_f68f.svg",
     user: admin)
+  puts "1 default post is created"
 end
 
-puts "#{Post.count} Posts are created"
+puts "Total posts: #{Post.count}"

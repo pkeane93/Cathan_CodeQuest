@@ -2,48 +2,51 @@
 <div id="footer" class="w-full mt-20">
   <hr>
   <%# Top %>
-  <div id="footer_top" class="px-20 py-10 flex justify-between text-2xl items-center font-semibold">
+  <div id="footer_top" class="px-10 py-10 flex flex-col lg:flex-row gap-8 lg:gap-0 lg:justify-between items-center lg:items-center text-xl lg:text-2xl font-semibold">
+
     <div>
       <h2>Keep exploring topics</h2>
     </div>
 
-    <div class="flex items-center gap-10 ">
+    <div class="flex items-center gap-10">
       <p>Share this blog</p>
 
-    <%= link_to("https://twitter.com/intent/tweet?url=https%3A%2F%2Fcathancodequest.sliplane.app%2F&text=Check+out+this+blog!",
-          class: "border opacity-70 rounded-full p-4 hover:bg-white hover:text-gray-700 transition-colors duration-300 ease-in-out",
-          target: "_blank") do %>
+      <%= link_to("https://twitter.com/intent/tweet?url=https%3A%2F%2Fcathancodequest.sliplane.app%2F&text=Check+out+this+blog!",
+            class: "border opacity-70 rounded-full p-4 hover:bg-white hover:text-gray-700 transition-colors duration-300 ease-in-out",
+            target: "_blank") do %>
 
-      <i class="text-4xl ti ti-brand-x"></i>
-    <% end %>
+        <i class="text-4xl ti ti-brand-x"></i>
+      <% end %>
 
-      <%= link_to("https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcathancodequest.sliplane.app%2F",
-          class: "border opacity-70 rounded-full p-4 hover:bg-white hover:text-gray-700 transition-colors duration-300 ease-in-out",
-          target: "_blank") do %>
+        <%= link_to("https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcathancodequest.sliplane.app%2F",
+            class: "border opacity-70 rounded-full p-4 hover:bg-white hover:text-gray-700 transition-colors duration-300 ease-in-out",
+            target: "_blank") do %>
 
-      <i class="text-4xl ti ti-brand-facebook"></i>
-    <% end %>
+        <i class="text-4xl ti ti-brand-facebook"></i>
+      <% end %>
 
-      <%= link_to("https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fcathancodequest.sliplane.app%2F",
-          class: "border opacity-70 rounded-full p-4 hover:bg-white hover:text-gray-700 transition-colors duration-300 ease-in-out",
-          target: "_blank") do %>
+        <%= link_to("https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fcathancodequest.sliplane.app%2F",
+            class: "border opacity-70 rounded-full p-4 hover:bg-white hover:text-gray-700 transition-colors duration-300 ease-in-out",
+            target: "_blank") do %>
 
-      <i class="text-4xl ti ti-brand-linkedin"></i>
-    <% end %>
+        <i class="text-4xl ti ti-brand-linkedin"></i>
+      <% end %>
     </div>
+
   </div>
 
   <hr>
   <%# Middle %>
   <% if show_footer_middle? %>
-    <div id="footer_mid" class="px-20 py-10 text-2xl items-center font-semibold">
-      <h2>More articles</h2>
-      <div class="flex gap-10 justify-center">
+    <div id="footer_mid" class="px-10 py-10 text-2xl items-center font-semibold">
+      <h2 class="mb-5">More articles</h2>
+      <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
+
         <%@random_posts.each do |post|%>
           <ul>
             <%= link_to(post_path(post)) do%>
               <li class ="group">
-                <div class="w-75 bg-opacity-100 text-white border border-gray-600 rounded-sm group-hover:border-white transition-colors duration-300 ease-in-out">
+                <div class="w-full max-w-sm bg-opacity-100 text-white border border-gray-600 rounded-sm group-hover:border-white transition-colors duration-300 ease-in-out">
                   <figure>
                     <%= image_tag("placeholder.jpg", alt: "blog post", class:"border-b border-gray-600 rounded-t-md group-hover:border-white transition-colors duration-300 ease-in-out") %>
                   </figure>
@@ -66,8 +69,9 @@
     </div>
   <hr>
   <% end %>
+
   <%# Bottom %>
-  <div id="footer_bot" class="px-20 py-10 flex justify-between">
+  <div id="footer_bot" class="px-6 sm:px-10 py-10 flex flex-col sm:flex-row gap-6 sm:gap-0 sm:justify-between items-start sm:items-center">
 
     <div>
       <a href="https://pkeane93.github.io/portfolio_page/" target= "_blank">
@@ -82,7 +86,6 @@
             <p class="opacity-70">Full Stack Software Engineer</p>
           </div>
 
-
         </div>
       </a>
     </div>
@@ -93,4 +96,5 @@
     </div>
 
   </div>
+
 </div>

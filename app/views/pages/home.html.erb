@@ -1,9 +1,9 @@
-<div class="h-90 w-full border-b border-gray-600 mb-15">
-  <%= image_tag("banner.jpg", alt: "banner of a ruby gem", class:"w-full h-full object-cover [object-position:50%_46%]") %>
+<div class="h-[30vh] sm:h-[39vh] md:h-[49vh] w-full border-b border-gray-600 mb-15">
+  <%= image_tag("banner.jpg", alt: "The warrior Cathan on his quest to finding ruby gems", class:"w-full h-full object-cover [object-position:50%_46%]") %>
 </div>
 
-<div class="flex flex-col gap-10 justify-center  items-center text-center">
-    <h1 class="text-5xl">Cathan's CodeQuest </h1>
-    <h2 class="text-2xl">Insights, Tutorials, Rails Projects</h2>
-    <%= link_to("Read more", posts_path, class:"btn text-lg")%>
+<div class="flex flex-col justify-center items-center text-center">
+    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white">Cathan's CodeQuest </h1>
+    <h2 class="text-lg sm:text-xl md:text-2xl text-gray-200 my-8">Insights, Tutorials, Rails Projects</h2>
+    <%= link_to("Read more", posts_path, class:"btn text-base sm:text-lg")%>
 </div>

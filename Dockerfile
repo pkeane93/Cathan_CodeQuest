@@ -62,4 +62,5 @@ EXPOSE 3000
 # CMD ["./bin/rails", "server"]
 # CMD ["sh", "-c", "bundle exec rails runner 'User.count == 0 && Rails.application.load_seed' && bin/rails server -b 0.0.0.0 -p 3000"]
 # CMD ["bash", "-c", "rails db:create db:migrate db:seed && rails s -b 0.0.0.0 -p 3000"]
-CMD ["bash", "-c", "bundle exec rails db:create db:migrate db:seed && bundle exec rails s -b 0.0.0.0 -p 3000"]
+# CMD ["bash", "-c", "bundle exec rails db:create db:migrate db:seed && bundle exec rails s -b 0.0.0.0 -p 3000"]
+CMD ["bash", "-c", "bundle exec rails db:prepare && bundle exec rails runner 'User.count == 0 && Rails.application.load_seed' && bundle exec rails s -b 0.0.0.0 -p 3000"]

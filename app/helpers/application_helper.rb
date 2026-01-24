@@ -7,7 +7,7 @@ module ApplicationHelper
   end
 
   def show_footer_middle?
-    if controller_name == "posts" && (action_name == "index" || action_name == "new" || action_name == "create")
+    if controller_name == "posts" && (action_name == "index" || action_name == "new" || action_name == "create" || action_name == "edit")
       false
     else
       true

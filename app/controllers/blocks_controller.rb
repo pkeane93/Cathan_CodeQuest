@@ -16,6 +16,13 @@ class BlocksController < ApplicationController
     end
   end
 
+  def destroy
+    @post = Post.find(params[:post_id])
+    @block = Block.find(params[:id])
+    @block.destroy
+    redirect_to edit_post_path, status: :see_other
+  end
+
   private
 
   def block_params

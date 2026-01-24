@@ -1,5 +1,8 @@
-
 <div class="flex flex-col gap-10 items-center pt-40">
+
+  <% if policy(Post.new).new? %>
+    <%= link_to "EDIT", edit_post_path, class:"btn outline" %>
+  <% end %>
 
   <h1 class="text-5xl"><%= @post.title %></h1>
   <h3 class="text-xl"><%= @post.subtitle %></h3>

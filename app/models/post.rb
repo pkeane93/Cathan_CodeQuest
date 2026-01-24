@@ -3,5 +3,7 @@ class Post < ApplicationRecord
   has_many(:categories)
   has_many(:blocks, dependent: :destroy)
 
+  has_one_attached :image
+
   validates(:title, :subtitle, presence: true)
 end

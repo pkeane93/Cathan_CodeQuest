@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   get "about", to: "pages#about"
 
-  resources :posts, only: [:index, :show, :new, :create, :destroy] do
+  resources :posts, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
      resources :blocks, only: [:create, :update, :destroy]
   end
 

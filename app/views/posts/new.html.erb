@@ -11,6 +11,11 @@
     <%= f.text_field :subtitle, placeholder: "Write a Subtitle..", class: "text-3xl p-2 text-center w-full focus:outline-none border-none placeholder:italic bg-gray-800 rounded-md" %>
   </div>
 
+  <div class="mb-8">
+    <%= f.label :image, "Upload a Post Image", class: "font-semibold" %>
+    <%= f.file_field :image, class: "border p-2 rounded w-full" %>
+  </div>
+
   <div>
     <%= f.submit class: 'p-3 border border-white rounded-md cursor-pointer'%>
   </div>

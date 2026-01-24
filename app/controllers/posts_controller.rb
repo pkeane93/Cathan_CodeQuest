@@ -50,7 +50,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :subtitle, :image)
+    params.require(:post).permit(:title, :subtitle, :image, blocks_attributes: [:id, :blocktitle, :blocktext, :image])
   end
 
 end

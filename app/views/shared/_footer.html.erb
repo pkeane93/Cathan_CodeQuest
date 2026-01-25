@@ -1,6 +1,7 @@
 <%# Footer %>
 <div id="footer" class="w-full mt-20">
   <hr class="opacity-50">
+
   <%# Top %>
   <div id="footer_top" class="px-10 py-10 flex flex-col lg:flex-row gap-8 lg:gap-0 lg:justify-between items-center lg:items-center text-xl lg:text-2xl font-semibold">
 
@@ -8,29 +9,32 @@
       <h2>Keep exploring topics</h2>
     </div>
 
-    <div class="flex items-center gap-10">
+    <div class="flex flex-col items-center md:flex-row gap-10">
       <p>Share this blog</p>
 
-      <%= link_to("https://twitter.com/intent/tweet?url=https%3A%2F%2Fcathancodequest.sliplane.app%2F&text=Check+out+this+blog!",
-            class: "border opacity-70 rounded-full p-4 hover:bg-white hover:text-gray-700 transition-colors duration-300 ease-in-out",
-            target: "_blank") do %>
+      <div class="flex gap-10">
+        <%= link_to("https://twitter.com/intent/tweet?url=https%3A%2F%2Fcathancodequest.sliplane.app%2F&text=Check+out+this+blog!",
+              class: "border opacity-70 rounded-full p-4 hover:bg-white hover:text-gray-700 transition-colors duration-300 ease-in-out",
+              target: "_blank") do %>
 
-        <i class="text-4xl ti ti-brand-x"></i>
-      <% end %>
+          <i class="text-4xl ti ti-brand-x"></i>
+        <% end %>
 
-        <%= link_to("https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcathancodequest.sliplane.app%2F",
-            class: "border opacity-70 rounded-full p-4 hover:bg-white hover:text-gray-700 transition-colors duration-300 ease-in-out",
-            target: "_blank") do %>
+          <%= link_to("https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcathancodequest.sliplane.app%2F",
+              class: "border opacity-70 rounded-full p-4 hover:bg-white hover:text-gray-700 transition-colors duration-300 ease-in-out",
+              target: "_blank") do %>
 
-        <i class="text-4xl ti ti-brand-facebook"></i>
-      <% end %>
+          <i class="text-4xl ti ti-brand-facebook"></i>
+        <% end %>
 
-        <%= link_to("https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fcathancodequest.sliplane.app%2F",
-            class: "border opacity-70 rounded-full p-4 hover:bg-white hover:text-gray-700 transition-colors duration-300 ease-in-out",
-            target: "_blank") do %>
+          <%= link_to("https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fcathancodequest.sliplane.app%2F",
+              class: "border opacity-70 rounded-full p-4 hover:bg-white hover:text-gray-700 transition-colors duration-300 ease-in-out",
+              target: "_blank") do %>
 
-        <i class="text-4xl ti ti-brand-linkedin"></i>
-      <% end %>
+          <i class="text-4xl ti ti-brand-linkedin"></i>
+        <% end %>
+
+      </div>
     </div>
 
   </div>

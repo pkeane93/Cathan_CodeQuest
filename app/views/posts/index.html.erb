@@ -41,42 +41,53 @@
   <%# Cards %>
   <ul data-dropdown-target="cards" class="lg:col-span-3 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
     <%@posts.each do |post|%>
-      <li id="post-<%= post.id %>" class="relative group">
-        <%# Delete Post %>
-        <% if policy(Post.new).new? %>
-          <%= link_to(post_path(post), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this article?" }, class:"py-2 px-3 absolute top-3 right-3 rounded-full hover:scale-112 bg-white text-black text-2xl") do%>
-            <i class="ti ti-trash"></i>
-          <%end%>
-        <%end%>
+      <% if (post.published) %>
+        <li id="post-<%= post.id %>" class="relative group">
+          <%# Delete Post %>
+          <% if policy(Post.new).new? %>
+            <div class="absolute bottom-1 w-full flex justify-around">
 
-        <%# Card %>
-        <%= link_to(post_path(post)) do%>
-          <div class="h-full bg-opacity-100 text-white border border-gray-600 rounded-sm group-hover:border-white transition-colors duration-300 ease-in-out">
+              <button data-action="click->dropdown#published"class="py-2 px-3 rounded-full hover:scale-112 bg-white text-black text-2xl">
+                ON/OFF
+                <%# When users clicks here -> posts.published should be toggle true or false %>
+                <%# If posts.published === true, iterate and show posts %>
+              </button>
 
-            <figure>
-              <%= image_tag(post.image.present? ? post.image  : "placeholder.jpg", alt: "blog post image", class:"border-b border-gray-600 rounded-t-md group-hover:border-white transition-colors duration-300 ease-in-out") %>
-            </figure>
+              <%= link_to(post_path(post), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this article?" }, class:"py-2 px-3 rounded-full hover:scale-112 bg-white text-black text-2xl") do%>
+                <i class="ti ti-trash"></i>
+              <%end %>
 
-            <div class="card-body">
-              <h2 class="card-title">
-                <%= post.title %>
-              </h2>
-
-              <p>
-                <%= post.subtitle%>
-              </p>
-
-              <%# <div class="card-actions justify-start">
-                <div class="badge badge-outline rounded-sm">
-                  Display categories
-                </div>
-              </div> %>
             </div>
+          <%end%>
 
-          </div>
-        <%end%>
+          <%# Card %>
+            <%= link_to(post_path(post)) do%>
+              <div class="h-full bg-opacity-100 text-white border border-gray-600 rounded-sm group-hover:border-white transition-colors duration-300 ease-in-out">
 
-      </li>
+                <figure>
+                  <%= image_tag(post.image.present? ? post.image  : "placeholder.jpg", alt: "blog post image", class:"border-b border-gray-600 rounded-t-sm group-hover:border-white transition-colors duration-300 ease-in-out") %>
+                </figure>
+
+                <div class="card-body">
+                  <h2 class="card-title">
+                    <%= post.title %>
+                  </h2>
+
+                  <p>
+                    <%= post.subtitle%>
+                  </p>
+
+                  <%# <div class="card-actions justify-start">
+                    <div class="badge badge-outline rounded-sm">
+                      Display categories
+                    </div>
+                  </div> %>
+                </div>
+
+              </div>
+            <%end%>
+        </li>
+      <%end%>
     <%end%>
   </ul>
 

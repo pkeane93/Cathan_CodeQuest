@@ -27,9 +27,18 @@ class PostPolicy < ApplicationPolicy
     user.admin?
   end
 
+  def toggle_published?
+    user&.admin?
+  end
+
   class Scope < Scope
     def resolve
-      scope.all
+      if user&.admin?
+        scope.all
+      else
+        scope.where(published: true)
+      end
     end
   end
+
 end

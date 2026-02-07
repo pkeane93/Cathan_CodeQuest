@@ -32,8 +32,4 @@ export default class extends Controller {
         break;
     }
   }
-
-  published = () => {
-
-  }
 }

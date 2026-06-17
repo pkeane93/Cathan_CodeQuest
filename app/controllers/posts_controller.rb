@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :toggle_published]
 
   def index
     @posts = policy_scope(Post).order(created_at: :desc)
@@ -41,6 +41,12 @@ class PostsController < ApplicationController
     authorize @post
     @post.destroy
     redirect_to posts_path, status: :see_other
+  end
+
+  def toggle_published
+    authorize @post
+    @post.update(published: !@post.published)
+    redirect_to posts_path
   end
 
   private
